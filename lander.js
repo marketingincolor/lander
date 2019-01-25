@@ -62,6 +62,31 @@ request.onload = function() {
 		console.log(data);
 		new_title = data["0"].title.rendered;
 		new_content = data["0"].content.rendered;
+
+		/**
+		* Third we built the variable sets to define html sections
+		*/
+		var open_html = '<html><head>';
+		var lander_head = '<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Landing Tester Template</title>';
+		var lander_includes = '<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">';
+		var ss_ident = '<!-- SS Comment:' + lander_ss + ' - this is the code for SharpSpring --> ';
+		var close_head_open_body = '</head><body>';
+		var wp_content = '<div class="container">' + new_title + ' ** ' + new_content + '</div>';
+		var lander_body = '<div class="container"><h1>This is Demo Lander Content!</h1><p>This is for lander_id:' + lander_id + '</p><p>And for lander_ss:' + lander_ss + '</p></div>';
+		var lander_foot = '<div class="container"><p>This is Lander Foot</p></div>';
+
+		var close_body_close_html = '</body></html>';
+		/**
+		* Lander functions to create html sections
+		*/
+		function landerOutput() {
+			document.open();
+			document.write( open_html, lander_head, lander_includes, ss_ident, close_head_open_body, wp_content, lander_body, lander_foot, close_body_close_html);
+			document.close();
+		}
+		landerOutput();
+
+		
 	} else {
 		// We reached our target server, but it returned an error
 	}
@@ -75,7 +100,7 @@ request.send();
 /**
 * Third we built the variable sets to define html sections
 */
-var open_html = '<html><head>';
+/*var open_html = '<html><head>';
 var lander_head = '<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Landing Tester Template</title>';
 var lander_includes = '<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">';
 var ss_ident = '<!-- SS Comment:' + lander_ss + ' - this is the code for SharpSpring --> ';
@@ -84,13 +109,13 @@ var wp_content = '<div class="container">' + new_title + ' ** ' + new_content + 
 var lander_body = '<div class="container"><h1>This is Demo Lander Content!</h1><p>This is for lander_id:' + lander_id + '</p><p>And for lander_ss:' + lander_ss + '</p></div>';
 var lander_foot = '<div class="container"><p>This is Lander Foot</p></div>';
 
-var close_body_close_html = '</body></html>';
+var close_body_close_html = '</body></html>';*/
 /**
 * Lander functions to create html sections
 */
-function landerOutput() {
+/*function landerOutput() {
 	document.open();
 	document.write( open_html, lander_head, lander_includes, ss_ident, close_head_open_body, wp_content, lander_body, lander_foot, close_body_close_html);
 	document.close();
 }
-landerOutput();
+landerOutput();*/
